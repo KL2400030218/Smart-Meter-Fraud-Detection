@@ -1,0 +1,57 @@
+{
+  "model_version": "v2.0.0-proposed-ensemble",
+  "training_samples": 21600,
+  "test_samples": 7200,
+  "feature_columns": [
+    "consumption_change_percentage",
+    "rolling_average",
+    "rolling_std",
+    "daily_consumption",
+    "night_consumption",
+    "peak_consumption",
+    "off_peak_consumption",
+    "historical_deviation",
+    "voltage_deviation",
+    "current_deviation",
+    "power_factor_deviation"
+  ],
+  "selected_model": "Proposed Model (RF+XGB+LGBM soft-voting)",
+  "selection_rationale": "Selected from an 8-model, 5-fold cross-validated comparison (see docs/architecture/model_comparison.md) for having the best F1 (0.9965) and Recall (0.9957) of all candidates. Latency (~18ms/prediction) and storage (~4.3MB) are higher than lighter alternatives (XGBoost/LightGBM alone) but both remain well within acceptable bounds for this system's single-reading-at-a-time API pattern.",
+  "results": {
+    "Proposed Model (RF+XGB+LGBM soft-voting)": {
+      "accuracy": 0.99875,
+      "precision": 0.993127147766323,
+      "recall": 0.996551724137931,
+      "f1": 0.9948364888123924,
+      "roc_auc": 0.9999384431007244,
+      "confusion_matrix": [
+        [
+          6324,
+          6
+        ],
+        [
+          3,
+          867
+        ]
+      ]
+    }
+  },
+  "feature_importance_random_forest": {
+    "consumption_change_percentage": 0.004895342020481523,
+    "rolling_average": 0.06779803921610428,
+    "rolling_std": 0.13351114956257304,
+    "daily_consumption": 0.14258894490449994,
+    "night_consumption": 0.24480820732558256,
+    "peak_consumption": 0.11655866758004552,
+    "off_peak_consumption": 0.13380378538953688,
+    "historical_deviation": 0.04121101441646569,
+    "voltage_deviation": 0.057823313287342935,
+    "current_deviation": 0.05616818861019422,
+    "power_factor_deviation": 0.0008333476871734677
+  },
+  "class_balance": {
+    "fraud": 3480,
+    "normal": 25320
+  },
+  "full_8_model_comparison": "see models/model_comparison_v2.json (5-fold CV)"
+}

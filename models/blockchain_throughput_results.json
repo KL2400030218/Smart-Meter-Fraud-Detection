@@ -1,0 +1,10 @@
+{
+  "n_transactions": 100,
+  "total_time_sec": 2.107,
+  "throughput_tx_per_sec": 47.45,
+  "per_tx_mean_ms": 21.07,
+  "per_tx_std_ms": 2.88,
+  "per_tx_min_ms": 18.1,
+  "per_tx_max_ms": 32.91,
+  "final_record_count": 100
+}
